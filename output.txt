@@ -1,0 +1,348 @@
+import React from 'react';
+import { Mail, Phone, MapPin, Linkedin, Calendar, Award, Briefcase, GraduationCap, Globe, Download, Target, Users, TrendingUp } from 'lucide-react';
+
+const App = () => {
+  const personalInfo = {
+    name: "Emmanuel Haillot",
+    title: "International Business Developer",
+    email: "emmanuel.haillot@example.com",
+    phone: "+33 (0)6 12 34 56 78",
+    locations: ["Paris, France", "Cape Town, South Africa"],
+    linkedin: "linkedin.com/in/emmanuelhaillot",
+    website: "emmanuelhaillot.com"
+  };
+
+  const skills = [
+    { category: "Market Development", items: ["Market Entry Strategy", "Business Expansion", "Partnership Development", "Go-to-Market Strategy"] },
+    { category: "International Trade", items: ["Export/Import", "Cross-cultural Negotiation", "Regulatory Compliance", "Supply Chain Management"] },
+    { category: "Business Analysis", items: ["Market Research", "Competitive Intelligence", "Financial Modeling", "ROI Analysis"] },
+    { category: "Languages", items: ["French (Native)", "English (Fluent)", "Afrikaans (Intermediate)", "Spanish (Basic)"] }
+  ];
+
+  const experience = [
+    {
+      company: "Global Trade Solutions Ltd",
+      position: "Senior International Business Developer",
+      duration: "2020 - Present",
+      location: "Paris, France & Cape Town, South Africa",
+      achievements: [
+        "Expanded company presence into 5 new African markets, generating €2.5M in first-year revenue",
+        "Established strategic partnerships with 15+ local distributors across Europe and Africa",
+        "Led market entry strategy for South-East Asian markets, achieving 180% ROI within 18 months",
+        "Managed cross-cultural teams of 25+ professionals across 3 continents"
+      ]
+    },
+    {
+      company: "Emerging Markets Consulting Group",
+      position: "International Business Consultant",
+      duration: "2017 - 2020",
+      location: "Geneva, Switzerland & Johannesburg, South Africa",
+      achievements: [
+        "Advised 30+ multinational corporations on African market entry strategies",
+        "Facilitated €50M+ in international trade deals between European and African partners",
+        "Developed comprehensive market intelligence reports for 12 African countries",
+        "Negotiated joint ventures worth €15M between European and African companies"
+      ]
+    },
+    {
+      company: "International Trade Corporation",
+      position: "Business Development Manager",
+      duration: "2014 - 2017",
+      location: "Brussels, Belgium & Lagos, Nigeria",
+      achievements: [
+        "Identified and developed new business opportunities in West and Southern Africa",
+        "Increased company revenue by 40% through strategic market expansion",
+        "Built and maintained relationships with government officials and trade organizations",
+        "Organized 15+ international trade missions and business forums"
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      degree: "Master in International Business",
+      school: "HEC Paris - École des Hautes Études Commerciales",
+      duration: "2012 - 2014",
+      location: "Paris, France"
+    },
+    {
+      degree: "Bachelor in Economics and International Relations",
+      school: "University of Cape Town",
+      duration: "2009 - 2012",
+      location: "Cape Town, South Africa"
+    }
+  ];
+
+  const projects = [
+    {
+      name: "Pan-African Market Expansion Initiative",
+      description: "Comprehensive strategy to expand European SME presence across 10 African markets",
+      impact: "Facilitated €10M+ in new business deals",
+      region: "Africa"
+    },
+    {
+      name: "EU-Africa Trade Bridge Program",
+      description: "Digital platform connecting European suppliers with African distributors",
+      impact: "Connected 200+ companies, generated €5M in trade volume",
+      region: "Europe-Africa"
+    },
+    {
+      name: "Emerging Markets Intelligence Dashboard",
+      description: "Real-time market analysis tool for international business decision-making",
+      impact: "Reduced market research time by 60%, improved deal success rate by 35%",
+      region: "Global"
+    }
+  ];
+
+  const certifications = [
+    { name: "Certified International Trade Professional (CITP)", issuer: "International Trade Institute", date: "2019" },
+    { name: "Export Compliance Specialist", issuer: "World Trade Center Association", date: "2018" },
+    { name: "Cross-Cultural Management Certification", issuer: "INSEAD", date: "2017" }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div className="flex items-center gap-8">
+              <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl">
+                EH
+              </div>
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{personalInfo.name}</h1>
+                <p className="text-2xl text-blue-600 font-medium mt-2">{personalInfo.title}</p>
+                <div className="flex flex-wrap gap-4 mt-4 text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={18} />
+                    <span>{personalInfo.locations.join(" | ")}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail size={18} />
+                    <span>{personalInfo.email}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone size={18} />
+                    <span>{personalInfo.phone}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl">
+                <Download size={24} />
+                Download CV
+              </button>
+              <div className="flex gap-4">
+                <a href={`https://${personalInfo.linkedin}`} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+                <a href={`https://${personalInfo.website}`} className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
+                  <Globe size={20} />
+                  <span>Website</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Left Column */}
+          <div className="lg:col-span-2 space-y-10">
+            {/* About */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <Target className="text-blue-600" size={32} />
+                About Me
+              </h2>
+              <div className="prose prose-lg text-gray-700 leading-relaxed">
+                <p>
+                  Dynamic International Business Developer with extensive experience bridging European and African markets. 
+                  Passionate about creating sustainable business partnerships and driving growth across emerging markets. 
+                  Specialized in market entry strategies, cross-cultural negotiation, and strategic alliance development.
+                </p>
+                <p className="mt-4">
+                  With a unique dual perspective from both European and African business environments, I bring valuable 
+                  insights to companies looking to expand internationally. My approach combines deep market knowledge 
+                  with practical business acumen to deliver measurable results.
+                </p>
+              </div>
+            </section>
+
+            {/* Experience */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <Briefcase className="text-blue-600" size={32} />
+                Professional Experience
+              </h2>
+              <div className="space-y-10">
+                {experience.map((job, index) => (
+                  <div key={index} className="relative pl-10 border-l-4 border-blue-200 pb-8 last:pb-0">
+                    <div className="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                      <Briefcase className="text-white" size={14} />
+                    </div>
+                    <div className="mb-3">
+                      <h3 className="text-2xl font-bold text-gray-900">{job.position}</h3>
+                      <p className="text-blue-600 font-semibold text-xl">{job.company}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-6 text-gray-600 mb-4">
+                      <div className="flex items-center gap-2">
+                        <Calendar size={18} />
+                        <span className="font-medium">{job.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin size={18} />
+                        <span>{job.location}</span>
+                      </div>
+                    </div>
+                    <ul className="space-y-3">
+                      {job.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex gap-3 text-gray-700">
+                          <span className="text-blue-600 mt-1 flex-shrink-0">•</span>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Projects */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <Globe className="text-blue-600" size={32} />
+                Key Projects & Initiatives
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {projects.map((project, index) => (
+                  <div key={index} className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-br from-white to-blue-50">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
+                      <TrendingUp className="text-blue-600 flex-shrink-0" size={20} />
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                        {project.impact}
+                      </span>
+                      <span className="text-blue-600 text-sm font-medium">{project.region}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Right Column */}
+          <div className="space-y-10">
+            {/* Skills */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Core Competencies</h2>
+              <div className="space-y-7">
+                {skills.map((skillGroup, index) => (
+                  <div key={index}>
+                    <h3 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+                      {skillGroup.category === "Market Development" && <Target className="text-blue-600" size={20} />}
+                      {skillGroup.category === "International Trade" && <Globe className="text-blue-600" size={20} />}
+                      {skillGroup.category === "Business Analysis" && <TrendingUp className="text-blue-600" size={20} />}
+                      {skillGroup.category === "Languages" && <Users className="text-blue-600" size={20} />}
+                      {skillGroup.category}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {skillGroup.items.map((skill, idx) => (
+                        <span key={idx} className="bg-blue-50 hover:bg-blue-100 text-blue-800 px-3 py-2 rounded-lg text-sm font-medium transition-colors">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Education */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <GraduationCap className="text-blue-600" size={32} />
+                Education
+              </h2>
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <div key={index} className="border-l-4 border-blue-200 pl-6">
+                    <h3 className="font-bold text-gray-900 text-lg">{edu.degree}</h3>
+                    <p className="text-blue-600 font-medium">{edu.school}</p>
+                    <div className="flex flex-wrap gap-4 text-gray-600 mt-3">
+                      <div className="flex items-center gap-2">
+                        <Calendar size={16} />
+                        <span>{edu.duration}</span>
+                      </div>
+                      <span>{edu.location}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Certifications */}
+            <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                <Award className="text-blue-600" size={32} />
+                Professional Certifications
+              </h2>
+              <div className="space-y-5">
+                {certifications.map((cert, index) => (
+                  <div key={index} className="border border-gray-200 rounded-lg p-5 hover:border-blue-300 transition-colors">
+                    <h3 className="font-bold text-gray-900">{cert.name}</h3>
+                    <p className="text-blue-600 text-sm">{cert.issuer}</p>
+                    <p className="text-gray-500 text-sm mt-1">{cert.date}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Contact */}
+            <section className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg p-8 text-white">
+              <h2 className="text-2xl font-bold mb-6">Let's Connect</h2>
+              <p className="mb-6 opacity-90">
+                Interested in expanding your business internationally? Let's discuss opportunities in European and African markets.
+              </p>
+              <div className="space-y-4">
+                <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-3 text-white hover:text-blue-200 transition-colors">
+                  <Mail size={20} />
+                  <span>{personalInfo.email}</span>
+                </a>
+                <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-3 text-white hover:text-blue-200 transition-colors">
+                  <Phone size={20} />
+                  <span>{personalInfo.phone}</span>
+                </a>
+                <a href={`https://${personalInfo.linkedin}`} className="flex items-center gap-3 text-white hover:text-blue-200 transition-colors">
+                  <Linkedin size={20} />
+                  <span>LinkedIn Profile</span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-10 mt-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <p className="text-gray-400">
+            © 2024 {personalInfo.name}. Bridging European and African Business Opportunities.
+          </p>
+          <p className="text-gray-500 text-sm mt-2">
+            Specializing in International Business Development Across Two Continents
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
