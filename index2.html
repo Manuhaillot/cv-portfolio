@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catch the Clients - Mini Game</title>
+  <title>Deal Runner - Mini Game</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 40px;
+      background: #ecf0f1;
     }
     canvas {
-      border: 2px solid #000;
-      margin-top: 20px;
-      cursor: pointer;
+      border: 2px solid #2c3e50;
+      background: white;
+      display: block;
+      margin: auto;
     }
     h2 {
       color: #2c3e50;
@@ -21,47 +23,103 @@
   </style>
 </head>
 <body>
-
-  <h2>🎮 Catch the Clients</h2>
+  <h2>🏃 Deal Runner</h2>
   <p id="score">Deals closed: 0</p>
   <canvas id="gameCanvas" width="500" height="400"></canvas>
 
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
+
     let score = 0;
+    let gameOver = false;
 
-    // position du "client"
-    let x = Math.random() * 450;
-    let y = Math.random() * 350;
-    const size = 40;
+    // Joueur
+    const player = { x: 50, y: 180, size: 30, speed: 5 };
 
-    function drawClient() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "blue";
-      ctx.beginPath();
-      ctx.arc(x + size/2, y + size/2, size/2, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "white";
-      ctx.font = "14px Arial";
-      ctx.fillText("💼", x+10, y+25);
-    }
+    // Contrat (objectif)
+    let contract = {
+      x: Math.random() * 450,
+      y: Math.random() * 350,
+      size: 25
+    };
 
-    canvas.addEventListener("click", function (e) {
-      const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+    // Obstacles
+    let obstacles = [
+      { x: 200, y: 100, w: 40, h: 40 },
+      { x: 350, y: 250, w: 40, h: 40 },
+      { x: 150, y: 300, w: 40, h: 40 }
+    ];
 
-      if (clickX >= x && clickX <= x + size && clickY >= y && clickY <= y + size) {
+    // Déplacement clavier
+    let keys = {};
+    document.addEventListener("keydown", e => { keys[e.key] = true; });
+    document.addEventListener("keyup", e => { keys[e.key] = false; });
+
+    function update() {
+      if (gameOver) return;
+
+      if (keys["ArrowUp"]) player.y -= player.speed;
+      if (keys["ArrowDown"]) player.y += player.speed;
+      if (keys["ArrowLeft"]) player.x -= player.speed;
+      if (keys["ArrowRight"]) player.x += player.speed;
+
+      // Limites canvas
+      player.x = Math.max(0, Math.min(canvas.width - player.size, player.x));
+      player.y = Math.max(0, Math.min(canvas.height - player.size, player.y));
+
+      // Collision avec contrat
+      if (
+        player.x < contract.x + contract.size &&
+        player.x + player.size > contract.x &&
+        player.y < contract.y + contract.size &&
+        player.y + player.size > contract.y
+      ) {
         score++;
         document.getElementById("score").innerText = "Deals closed: " + score;
-        x = Math.random() * 450;
-        y = Math.random() * 350;
-        drawClient();
+        contract.x = Math.random() * (canvas.width - contract.size);
+        contract.y = Math.random() * (canvas.height - contract.size);
       }
-    });
 
-    drawClient();
+      // Collision avec obstacles
+      obstacles.forEach(obs => {
+        if (
+          player.x < obs.x + obs.w &&
+          player.x + player.size > obs.x &&
+          player.y < obs.y + obs.h &&
+          player.y + player.size > obs.y
+        ) {
+          gameOver = true;
+          alert("💥 Game Over! You signed " + score + " deals.");
+        }
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Joueur
+      ctx.fillStyle = "blue";
+      ctx.fillRect(player.x, player.y, player.size, player.size);
+
+      // Contrat
+      ctx.fillStyle = "green";
+      ctx.fillRect(contract.x, contract.y, contract.size, contract.size);
+      ctx.fillStyle = "white";
+      ctx.fillText("💼", contract.x + 3, contract.y + 17);
+
+      // Obstacles
+      ctx.fillStyle = "red";
+      obstacles.forEach(obs => ctx.fillRect(obs.x, obs.y, obs.w, obs.h));
+    }
+
+    function gameLoop() {
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
   </script>
 </body>
 </html>
