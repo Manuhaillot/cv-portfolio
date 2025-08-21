@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmanuel Haillot - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+    header {
+      background: linear-gradient(135deg, #800020, #000);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 1rem;
+    }
+    header a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #800020;
+    }
+    .timeline {
+      border-left: 3px solid #800020;
+      padding-left: 1rem;
+    }
+    .timeline div {
+      margin-bottom: 1rem;
+    }
+    .testimonial {
+      background: white;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .hobbies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .hobbies div {
+      background: white;
+      padding: 1rem;
+      flex: 1 1 200px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Emmanuel Haillot</h1>
+    <p>International Sales Manager – Strategic Thinker & Problem Solver</p>
+    <a href="CV_Emmanuel_Haillot.pdf" target="_blank">Download CV</a>
+  </header>
+
+  <!-- About -->
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hardworking, honest and dedicated, I have built strong experience across international sales, operations, 
+      and business development. I thrive on solving problems, creating efficient strategies, and helping 
+      businesses grow worldwide.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <h2>Experience & Qualifications</h2>
+    <div class="timeline">
+      <div>
+        <strong>Swiss Trade Desk</strong> – Operations Manager (2024 – Present)  
+        <p>Overseeing operations and optimizing international trade flows.</p>
+      </div>
+      <div>
+        <strong>AVEVA / Real Advisor / MySofie</strong> – Consultant (2023 – 2024)  
+        <p>Developed international business strategies, supported sales teams and partnerships.</p>
+      </div>
+      <div>
+        <strong>EIS Group</strong> – Sales Development Representative (2021 – 2023)  
+        <p>Prospecting, market research, and CRM pipeline management for US-based team.</p>
+      </div>
+      <div>
+        <strong>100% Trading / 100% Conscious</strong> – Operations Manager (2018 – 2021)  
+        <p>Managed import/export operations and streamlined trading processes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+      <p>"Emmanuel is one of the most dedicated professionals I have worked with – a true problem solver."</p>
+      <small>– Former colleague</small>
+    </div>
+    <div class="testimonial">
+      <p>"His creativity and determination are outstanding. He always brings value to every project."</p>
+      <small>– Business Partner</small>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section>
+    <h2>Hobbies & Interests</h2>
+    <div class="hobbies">
+      <div>🍷 Wine Tasting & Gastronomy</div>
+      <div>🌍 Travel & Culture</div>
+      <div>🚴 Cycling & Fitness</div>
+      <div>📚 Personal Development</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <p style="text-align:center;">
+      📧 <a href="mailto:emmanuel.haillot@email.com">emmanuel.haillot@email.com</a> <br>
+      🔗 <a href="https://www.linkedin.com/in/emmanuel-haillot" target="_blank">LinkedIn Profile</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Emmanuel Haillot – All Rights Reserved
+  </footer
