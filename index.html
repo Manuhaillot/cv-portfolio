@@ -229,6 +229,49 @@
       🔗 <a href="https://www.linkedin.com/in/emmanuelhaillot/" target="_blank">LinkedIn Profile</a>
     </p>
   </section>
+<section id="game">
+  <h2>🎮 Catch the Clients</h2>
+  <p id="score">Deals closed: 0</p>
+  <canvas id="gameCanvas" width="500" height="400" style="border:1px solid black;"></canvas>
+</section>
+
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+  let score = 0;
+
+  // position du "client"
+  let x = Math.random() * 450;
+  let y = Math.random() * 350;
+  const size = 40;
+
+  function drawClient() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(x + size/2, y + size/2, size/2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "white";
+    ctx.font = "14px Arial";
+    ctx.fillText("💼", x+10, y+25);
+  }
+
+  canvas.addEventListener("click", function (e) {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+
+    if (clickX >= x && clickX <= x + size && clickY >= y && clickY <= y + size) {
+      score++;
+      document.getElementById("score").innerText = "Deals closed: " + score;
+      x = Math.random() * 450;
+      y = Math.random() * 350;
+      drawClient();
+    }
+  });
+
+  drawClient();
+</script>
 
   <!-- Footer -->
   <footer>
