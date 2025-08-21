@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Clients - Mini Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+    canvas {
+      border: 2px solid #000;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎮 Catch the Clients</h2>
+  <p id="score">Deals closed: 0</p>
+  <canvas id="gameCanvas" width="500" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let score = 0;
+
+    // position du "client"
+    let x = Math.random() * 450;
+    let y = Math.random() * 350;
+    const size = 40;
+
+    function drawClient() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "blue";
+      ctx.beginPath();
+      ctx.arc(x + size/2, y + size/2, size/2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "white";
+      ctx.font = "14px Arial";
+      ctx.fillText("💼", x+10, y+25);
+    }
+
+    canvas.addEventListener("click", function (e) {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      if (clickX >= x && clickX <= x + size && clickY >= y && clickY <= y + size) {
+        score++;
+        document.getElementById("score").innerText = "Deals closed: " + score;
+        x = Math.random() * 450;
+        y = Math.random() * 350;
+        drawClient();
+      }
+    });
+
+    drawClient();
+  </script>
+</body>
+</html>
